@@ -1,0 +1,4 @@
+feedback
+The app is slow when I export reports.
+Please add keyboard shortcuts for common actions.
+The onboarding tour was really clear.

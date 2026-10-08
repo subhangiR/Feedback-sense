@@ -1,0 +1,262 @@
+.app-shell {
+  display: flex;
+  min-height: 100svh;
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  border: 0;
+  background: rgba(28, 25, 23, 0.42);
+  cursor: pointer;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  padding: 24px 16px;
+  background: var(--sidebar);
+  color: var(--sidebar-text);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 24px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.brand-name {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.brand-tagline {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #78716c;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background: var(--sidebar-hover);
+  color: #fff;
+}
+
+.nav-item.is-active {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active);
+}
+
+.sidebar-footnote {
+  margin-top: auto;
+  padding: 16px 8px 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #78716c;
+}
+
+.app-main {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: var(--header-height);
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-left h1 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.header-left p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.menu-button {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.header-search-spacer {
+  margin-left: auto;
+}
+
+.header-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: var(--focus);
+}
+
+.header-search-spacer {
+  margin-left: auto;
+}
+
+.header-search input {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.header-search input:focus {
+  outline: none;
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #d6f5ef;
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.user-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-meta strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.user-meta small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.app-content {
+  flex: 1;
+  padding: 28px;
+}
+
+@media (max-width: 959px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .menu-button {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .user-meta,
+  .header-left p {
+    display: none;
+  }
+
+  .header-search {
+    min-width: 160px;
+    width: min(200px, 40vw);
+  }
+
+  .top-header,
+  .app-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 720px) {
+  .top-header {
+    flex-wrap: wrap;
+  }
+
+  .header-right {
+    margin-left: auto;
+  }
+
+  .header-search {
+    order: 3;
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .header-left h1 {
+    font-size: 18px;
+  }
+}
